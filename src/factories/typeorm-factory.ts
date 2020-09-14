@@ -1,4 +1,4 @@
-import { TypeOrm } from 'models/Typeorm-Model';
+import { TypeOrm } from '../models/Typeorm-Model';
 import { ConnectionOptions } from 'typeorm';
 
 export class TypeOrmFactory {

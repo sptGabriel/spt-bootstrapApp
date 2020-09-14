@@ -1,7 +1,7 @@
 import Express from 'express';
-import { Middlewares } from 'models/Middlewares';
+import { Middlewares } from '../models/Middlewares';
 export class MiddlewareFactory {
-  private middlewares: any[];
+  private middlewares: any[] = [];
   private server: Express.Application;
   constructor() {}
   public setServer(server: Express.Application) {
@@ -24,6 +24,6 @@ export class MiddlewareFactory {
   public newMiddleware = () => {
     if (!(this.middlewares.length > 0) || this.server)
       throw new Error('Middlewares or server must be provided');
-    return new Middlewares(this.server, this.middlewares);
+    return new Middlewares(this.middlewares);
   };
 }

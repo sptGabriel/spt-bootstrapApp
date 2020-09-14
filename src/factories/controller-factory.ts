@@ -1,14 +1,14 @@
-import { IController } from 'interfaces/controler.interface';
-import { Controller } from 'models/Controllers';
-import { isClass } from 'utils/isClass';
+import { IController } from '../interfaces/controler.interface';
+import { Controller } from '../models/Controllers';
+import { isClass } from '../utils/isClass';
 
 export class ControllerManagerFactory {
-  private controllers: IController[];
+  private controllers: IController[] = [];
   constructor() {}
   public setControllers(controllers: IController[]) {
-    if (!controllers || isClass(controllers))
+    if (!controllers || !isClass(controllers))
       throw new Error('Controllers must be provided');
-    for (let controller of this.controllers) {
+    for (let controller of controllers) {
       this.controllers.push(controller);
     }
   }
