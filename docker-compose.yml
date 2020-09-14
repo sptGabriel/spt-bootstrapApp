@@ -1,0 +1,13 @@
+version: "3.7"
+
+services: 
+  micro-hr-db:
+    image: postgres
+    container_name: hr_db
+    restart: always
+    tty: true
+    environment:
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=root
+    ports:
+      - "5432:5432"
