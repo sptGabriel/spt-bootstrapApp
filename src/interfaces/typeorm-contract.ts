@@ -1,7 +1,7 @@
-import { ConnectionOptions } from 'typeorm';
+import typeorm from 'typeorm';
 
 export interface TypeormContract {
-  getConfig(): ConnectionOptions | undefined;
+  getConfig(): typeorm.ConnectionOptions | undefined;
   runMigration(): Promise<void>;
   init(): Promise<void>;
 }
