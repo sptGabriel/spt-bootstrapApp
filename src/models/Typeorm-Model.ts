@@ -1,4 +1,4 @@
-import { Connection, ConnectionOptions, createConnection } from 'typeorm';
+import { ConnectionOptions, Connection, createConnection } from 'typeorm';
 
 export class TypeOrm {
   private config: ConnectionOptions;
@@ -23,6 +23,7 @@ export class TypeOrm {
         }
       );
     } catch (error) {
+      throw error;
       if (error instanceof Error) Promise.reject(error);
     }
   };

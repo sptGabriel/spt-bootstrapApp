@@ -1,11 +1,14 @@
-import { IController } from 'interfaces/controler.interface';
-import { isClass } from 'utils/isClass';
+import { IController } from '../interfaces/controler.interface';
+import { isClass } from '../utils/isClass';
 import { container } from 'tsyringe';
 export class Controller {
   private controllers: IController[];
   constructor(controllers: IController[]) {
     this.controllers = controllers;
   }
+  public getControllers = () => {
+    return this.controllers;
+  };
   public registerControllersInContainer = () => {
     for (let controller of this.controllers) {
       if (isClass(controller))
