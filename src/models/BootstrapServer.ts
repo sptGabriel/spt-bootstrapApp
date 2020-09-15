@@ -13,7 +13,7 @@ export class BootstrapApplication implements bootstrapApp {
   private application: express.Application;
   private orm: TypeOrm;
   private middlewares: Middlewares;
-  private controllerManager: Controller;
+  private controllerManager: Controller<any>;
   // private controllers: IController[];
   constructor(dependencyContainer: bootstrapDiContainer) {
     this.application = express();

@@ -1,9 +1,8 @@
-import { IController } from '../interfaces/controler.interface';
-import { isClass } from '../utils/isClass';
+import { BaseController } from '../interfaces/controler.interface';
 import { container } from 'tsyringe';
-export class Controller {
-  private controllers: IController[];
-  constructor(controllers: IController[]) {
+export class Controller<T> {
+  private controllers: any[];
+  constructor(controllers: any[]) {
     this.controllers = controllers;
   }
   public getControllers = () => {
@@ -11,8 +10,7 @@ export class Controller {
   };
   public registerControllersInContainer = () => {
     for (let controller of this.controllers) {
-      if (isClass(controller))
-        container.registerSingleton<IController>('Controllers', controller);
+      container.registerSingleton<T>('Controllers', controller);
     }
   };
 }
